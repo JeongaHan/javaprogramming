@@ -11,6 +11,7 @@ public class Test01 {
 		int n2 = kb.nextInt();
 		System.out.printf("%d / %d = %d \n", n1,n2,n1/n2);
 		System.out.println("Good bye");
+		System.out.println("Good bye");
 
 	}
 
