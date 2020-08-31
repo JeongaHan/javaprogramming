@@ -24,6 +24,15 @@ public class RestDay {
 		TimeZone tzNY = TimeZone.getTimeZone("America/New_York");
 		Calendar calNY = Calendar.getInstance(tzNY);
 		System.out.println(toYMD2(calNY));
+		
+		Calendar cal2 = Calendar.getInstance();
+		int lastDay = cal2.getActualMaximum(Calendar.DAY_OF_MONTH);
+		for(int i = 1;i<=lastDay;i++) {
+			cal2.set(Calendar.DAY_OF_MONTH, i);
+			if(isRest(cal2)) {
+				System.out.println(toYMD(cal2) + " is Rest Day.");
+			}
+		}
 	}
 	
 	public static Calendar todate(String ss) {
@@ -50,5 +59,12 @@ public class RestDay {
 		cal.add(Calendar.DAY_OF_YEAR, day);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(cal.getTime());
+	}
+	public static boolean isRest(Calendar tod) {
+		boolean isRest = false;
+		if(tod.get(Calendar.DAY_OF_WEEK)==Calendar.SATURDAY||tod.get(Calendar.DAY_OF_WEEK)==Calendar.SUNDAY){
+			isRest = true;
+		}
+		return isRest;
 	}
 }
