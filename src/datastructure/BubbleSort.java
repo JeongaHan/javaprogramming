@@ -11,9 +11,11 @@ public class BubbleSort {
 	
 	static void bubbleSort(int[] a, int n) {
 		for(int i = 0; i < n-1; i++) {
-			for(int j = n-1; j > i; j--) {
-				if(a[j-1] > a[j])
-					swap(a, j-1, j);
+			for(int j = 0; j < n-1-i; j++) {
+//				System.out.println(i + ", " + j);
+				if(a[j]>a[j+1]) {
+					swap(a,j,j+1);
+				}
 			}
 		}
 	}
@@ -33,8 +35,8 @@ public class BubbleSort {
 		bubbleSort(x, nx);
 		
 		System.out.println("오름차순으로 정렬했습니다.");
-		for(int i : x) {
-			System.out.println("x[" + i + "] : " + i);
+		for(int i = 0; i < nx; i++) {
+			System.out.println("x[" + i + "]= " + x[i]);
 		}
 
 	}
